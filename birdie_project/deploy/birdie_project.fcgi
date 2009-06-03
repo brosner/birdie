@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 APPNAME=birdie
 PIDFILE=/home/birdie/webapps/birdie/logs/${APPNAME}.pid
 HOST=127.0.0.1
@@ -16,7 +16,7 @@ MAXCHILDREN=2
 
 # cd "`dirname $0`"
 
-function failure {
+function failure() {
     STATUS=$?;
     echo; echo "failed $1 (exit code ${STATUS}).";
     exit ${STATUS};
