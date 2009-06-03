@@ -21,8 +21,7 @@ urlpatterns = patterns('',
     (r'^announcements/', include('announcements.urls')),
     (r'^comments/', include('threadedcomments.urls')),
     
-    (r'^newprojects/', include('newprojects.urls')),
-    #(r'^projects/', include('temp_projects.urls')),
+    (r'^projects/', include('newprojects.urls')),
     
     (r'^admin/(.*)', admin.site.root),
 )
