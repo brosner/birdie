@@ -2,8 +2,6 @@
 
 #home_tab .tab_home,
 #profile_tab .rtab_profile,
-#groups_tab .rtab_groups,
-#tribes_tab .rtab_tribes,
 #projects_tab .rtab_projects,
 #notices_tab .rtab_notices
 {
@@ -12,8 +10,6 @@
 }
 #home_tab .tab_home a,
 #profile_tab .rtab_profile a,
-#groups_tab .rtab_groups a,
-#tribes_tab .rtab_tribes a,
 #projects_tab .rtab_projects a,
 #notices_tab .rtab_notices a
 {
@@ -21,8 +17,6 @@
 }
 #home_tab .tab_home div,
 #profile_tab .rtab_profile div,
-#groups_tab .rtab_groups div,
-#tribes_tab .rtab_tribes div,
 #projects_tab .rtab_projects div,
 #notices_tab .rtab_notices div
 {
