@@ -16,13 +16,13 @@ MAXCHILDREN=2
 
 # cd "`dirname $0`"
 
-function failure {
+function failure () {
     STATUS=$?;
     echo; echo "failed $1 (exit code ${STATUS}).";
     exit ${STATUS};
 }
 
-function start_server {
+function start_server () {
     python manage.py runfcgi host=$HOST port=$PORT pidfile=$PIDFILE \
         ${MAXREQ:+maxrequests=$MAXREQ} \
         ${METHOD:+method=$METHOD} \
@@ -32,7 +32,7 @@ function start_server {
         ${DAEMONIZE:+damonize=True}
 }
 
-function stop_server {
+function stop_server () {
     kill `cat $PIDFILE` || failure "stopping ${APPNAME}"
     rm $PIDFILE
 }
