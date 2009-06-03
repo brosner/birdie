@@ -14,7 +14,7 @@ MINSPARE=1
 # Maximum number of children to spawn
 MAXCHILDREN=2
 
-cd "`dirname $0`"
+# cd "`dirname $0`"
 
 function failure () {
     STATUS=$?;
