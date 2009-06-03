@@ -22,6 +22,8 @@ urlpatterns = patterns('',
     (r'^comments/', include('threadedcomments.urls')),
     
     (r'^projects/', include('newprojects.urls')),
+    (r'^attachments/', include('attachments.urls')),
+    (r'^paste/', include('dpaste.urls')),
     
     (r'^admin/(.*)', admin.site.root),
 )

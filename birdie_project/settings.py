@@ -128,6 +128,8 @@ INSTALLED_APPS = (
     'newprojects',
     'gravatar',
     'django_sorting',
+    'attachments',
+    'dpaste',
     
     # internal (for now)
     'basic_profiles',
