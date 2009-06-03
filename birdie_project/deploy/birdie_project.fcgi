@@ -16,7 +16,7 @@ MAXCHILDREN=2
 
 # cd "`dirname $0`"
 
-function failure() {
+function failure {
     STATUS=$?;
     echo; echo "failed $1 (exit code ${STATUS}).";
     exit ${STATUS};
