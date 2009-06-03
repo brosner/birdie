@@ -22,7 +22,6 @@ urlpatterns = patterns('',
     (r'^comments/', include('threadedcomments.urls')),
     
     (r'^newprojects/', include('newprojects.urls')),
-    #(r'^tribes/', include('tribes_ng.urls')),
     #(r'^projects/', include('temp_projects.urls')),
     
     (r'^admin/(.*)', admin.site.root),
