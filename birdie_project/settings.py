@@ -141,7 +141,6 @@ INSTALLED_APPS = (
     'topics',
     'tasks',
     
-    'basic_groups',
     'groups_ng',
     
     'about',
