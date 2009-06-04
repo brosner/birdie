@@ -4,7 +4,6 @@ from django.core.urlresolvers import reverse, NoReverseMatch
 
 
 register = template.Library()
-raise Exception("i am too hot for you")
 
 
 class GroupURLNode(template.Node):
