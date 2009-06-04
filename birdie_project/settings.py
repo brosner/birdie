@@ -110,6 +110,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.humanize',
+    'django.contrib.markup',
     
     # external
     'notification', # must be first
