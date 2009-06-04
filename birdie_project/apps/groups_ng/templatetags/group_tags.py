@@ -15,6 +15,8 @@ class GroupURLNode(template.Node):
         self.asvar = asvar
     
     def render(self, context):
+        group = self.group.resolve(context)
+        
         args = []
         for arg in self.args:
             args.append(arg.resolve(context))
@@ -22,6 +24,8 @@ class GroupURLNode(template.Node):
         kwargs = {}
         for k, v in self.kwargs.items():
             kwargs[smart_str(k, "ascii")] = v.resolve(context)
+        
+        kwargs.update(group.get_url_kwargs())
         
         try:
             url = reverse(self.view_name, args=args, kwargs=kwargs)
