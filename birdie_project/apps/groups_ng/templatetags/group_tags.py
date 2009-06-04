@@ -25,7 +25,8 @@ class GroupURLNode(template.Node):
         for k, v in self.kwargs.items():
             kwargs[smart_str(k, "ascii")] = v.resolve(context)
         
-        kwargs.update(group.get_url_kwargs())
+        if group is not None:
+            kwargs.update(group.get_url_kwargs())
         
         try:
             url = reverse(self.view_name, args=args, kwargs=kwargs)
