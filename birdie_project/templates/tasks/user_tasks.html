@@ -4,11 +4,12 @@
 {% load tasks_tags %}
 {% load shorttimesince_tag %}
 {% load humanize %}
+{% load group_tags %}
 
 {% block head_title %}Tasks for {{ other_user }}{% endblock %}
 
 {% block body %}
-    <h1>Tasks for <a href="{% url profile_detail other_user %}">{{ other_user }}</a></h1>
+    <h1>Tasks for <a href="{% groupurl profile_detail group other_user %}">{{ other_user }}</a></h1>
     
     <p>You can drag this '<a href="{{ bookmarklet }}">{{ site_name }} Tasks</a>' link to your bookmark bar to quickly get to your open tasks!</p>
 
@@ -40,7 +41,7 @@
                     {% for task in section.list %}
                         <tr class="task_{{ task.get_state_display }} {% cycle odd,even %}">
                             <td>{{ task.id }}</td>
-                            <td><a href="{% url task_detail task.id %}">{{ task.summary }}</a></td>
+                            <td><a href="{% groupurl task_detail group task.id %}">{{ task.summary }}</a></td>
                             <td style="white-space: nowrap">{{ task.modified|shorttimesince }} ago</td>
                             <td>{% task_tags task %}</td>
                             <td>{{ task.status }}</td>
@@ -82,7 +83,7 @@
                     {% for task in section.list %}
                         <tr class="task_{{ task.get_state_display }} {% cycle odd,even %}">
                             <td>{{ task.id }}</td>
-                            <td><a href="{% url task_detail task.id %}">{{ task.summary }}</a></td>
+                            <td><a href="{% groupurl task_detail group task.id %}">{{ task.summary }}</a></td>
                             <td style="white-space: nowrap">{{ task.modified|shorttimesince }} ago</td>
                             <td>{% task_tags task %}</td>
                             <td>{{ task.status }}</td>
@@ -124,7 +125,7 @@
                     {% for task in section.list %}
                         <tr class="task_{{ task.get_state_display }} {% cycle odd,even %}">
                             <td>{{ task.id }}</td>
-                            <td><a href="{% url task_detail task.id %}">{{ task.summary }}</a></td>
+                            <td><a href="{% groupurl task_detail group task.id %}">{{ task.summary }}</a></td>
                             <td style="white-space: nowrap">{{ task.modified|shorttimesince }} ago</td>
                             <td>{% task_tags task %}</td>
                             <td>{{ task.status }}</td>

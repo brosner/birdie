@@ -2,6 +2,7 @@
 
 {% load i18n %}
 {% load uni_form %}
+{% load group_tags %}
 
 {% block head_title %}Add Task{% endblock %}
 
@@ -18,7 +19,7 @@
                 <ul>
                 {% for task in search_results %}
                   <li>
-                      <a href="{% url task_detail task.id %}">{{ task }}</a>
+                      <a href="{% groupurl task_detail group task.id %}">{{ task }}</a>
                       {{ task.detail|slice:":49"}}
                   </li>
                 {% endfor %}

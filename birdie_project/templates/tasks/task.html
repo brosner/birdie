@@ -5,13 +5,14 @@
 {% load comments_tag %}
 {% load uni_form %}
 {% load attachments_tags %}
+{% load group_tags %}
 
 {% block head_title %}{{ task.summary }}{% endblock %}
 
 {% block body %}
     {#<p><a href="{% url project_tasks task.project.slug %}">&larr; {% trans "Back to Task List for Project " %} {{ task.project }}</a></p>#}
 
-    <p><a href="{% url task_list %}">&larr; {% trans "Back to Task List" %}</a></p>
+    <p><a href="{% groupurl task_list group %}">&larr; {% trans "Back to Task List" %}</a></p>
 
     {% show_task task nudge %}
 

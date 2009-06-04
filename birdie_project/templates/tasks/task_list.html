@@ -6,6 +6,7 @@
 {% load humanize %}
 {% load tasks_tags %}
 {% load tagging_tags %}
+{% load group_tags %}
 
 {#}{% block head_title %}Tasks for {{ project.name }}{% endblock %}#}
 {% block head_title %}Tasks{% endblock %}
@@ -99,7 +100,7 @@
                 {% tasks_for_tag section as tagtasks %}
                 <tbody><tr class="task_grouping">
                     <td colspan="6">
-                        <span class="focus"><a href="{% focus_url group_by section %}">focus</a></span>
+                        <span class="focus"><a href="{% focus_url group_by section group %}">focus</a></span>
                         <span class="toggle">
                             <span class="arrow">&#x25BE;</span>
                             {{ section }}
@@ -111,11 +112,11 @@
                     {% for item in tagtasks %}
                         <tr class="task_{{ item.get_state_display }} {% cycle odd,even %}">
                             <td>{{ item.id }}</td>
-                            <td><a href="{% url task_detail item.id %}">{{ item.summary }}</a></td>
+                            <td><a href="{% groupurl task_detail group id=item.id %}">{{ item.summary }}</a></td>
                             <td style="white-space: nowrap">{{ item.modified|shorttimesince }} ago</td>
                             <td>
                                 {% if item.assignee %}
-                                    <a href="{% url tasks_for_user item.assignee %}">{{ item.assignee }}</a>
+                                    <a href="{% groupurl tasks_for_user group username=item.assignee %}">{{ item.assignee }}</a>
                                 {% else %}
                                     <span class="warning">unassigned</span>
                                 {% endif %}
@@ -130,7 +131,7 @@
             {% for section in grouped_tasks %}
                 <tbody><tr class="task_grouping">
                     <td colspan="6">
-                        <span class="focus"><a href="{% focus_url group_by section.grouper %}">focus</a></span>
+                        <span class="focus"><a href="{% focus_url group_by section.grouper group %}">focus</a></span>
                         <span class="toggle">
                             <span class="arrow">&#x25BE;</span>
                             {% ifequal group_by "state" %}
@@ -150,11 +151,11 @@
                     {% for task in section.list %}
                         <tr class="task_{{ task.get_state_display }} {% cycle odd,even %}">
                             <td>{{ task.id }}</td>
-                            <td><a href="{% url task_detail task.id %}">{{ task.summary }}</a></td>
+                            <td><a href="{% groupurl task_detail group id=task.id %}">{{ task.summary }}</a></td>
                             <td style="white-space: nowrap">{{ task.modified|shorttimesince }} ago</td>
                             <td>
                                 {% if task.assignee %}
-                                    <a href="{% url tasks_for_user task.assignee %}">{{ task.assignee }}</a>
+                                    <a href="{% groupurl tasks_for_user group username=task.assignee %}">{{ task.assignee }}</a>
                                     
                                 {% else %}
                                     <span class="warning">unassigned</span>
