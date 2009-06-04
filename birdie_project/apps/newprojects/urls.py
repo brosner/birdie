@@ -16,4 +16,5 @@ urlpatterns = patterns('newprojects.views',
     url(r'^project/(?P<group_slug>[-\w]+)/$', 'project', name="project_detail"),
     url(r'^project/(?P<group_slug>[-\w]+)/delete/$', 'delete', name="project_delete"),
     url(r'^project/(?P<group_slug>[-\w]+)/topics/', include('topics.urls'), kwargs=include_kwargs),
+    url(r'^project/(?P<group_slug>[-\w]+)/tasks/', include('tasks.urls'), kwargs=include_kwargs),
 )

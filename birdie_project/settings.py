@@ -139,8 +139,10 @@ INSTALLED_APPS = (
     'tag_app',
     
     'topics',
+    'tasks',
     
     'basic_groups',
+    'groups_ng',
     
     'about',
     
